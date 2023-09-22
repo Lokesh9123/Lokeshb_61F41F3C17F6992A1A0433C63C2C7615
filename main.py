@@ -1,31 +1,16 @@
-class BankAccount:
-    def __init__(self, account_number, account_holder_name, initial_balance=0):
-        self.__account_number = account_number
-        self.__account_holder_name = account_holder_name
-        self.__balance = initial_balance
+def linear_search_product(product_list, target_product):
+    indices = []
+    for index, product in enumerate(product_list):
+        if product == target_product:
+            indices.append(index)
+    return indices
 
-    def deposit(self, amount):
-        if amount > 0:
-            self.__balance += amount
-            print(f"Deposited {amount} INR. New balance: {self.__balance} INR")
-        else:
-            print("Invalid deposit amount. Please enter a positive amount.")
+# Example usage
+products = ["Apple", "Banana", "Orange", "Apple", "Grapes", "Apple"]
+target_product = "Apple"
 
-    def withdraw(self, amount):
-        if 0 < amount <= self.__balance:
-            self.__balance -= amount
-            print(f"Withdrew {amount} INR. New balance: {self.__balance} INR")
-        else:
-            print("Insufficient funds or invalid withdrawal amount.")
-
-    def display_balance(self):
-        print(f"Account balance for {self.__account_holder_name} (Account #{self.__account_number}): {self.__balance} INR")
-
-# Example usage:
-if __name__ == "__main__":
-    account = BankAccount("12345", "lokesh", 1000)
-
-    account.display_balance()
-    account.deposit(500)
-    account.withdraw(200)
-    account.display_balance()
+result = linear_search_product(products, target_product)
+if result:
+    print(f"{target_product} found at indices: {result}")
+else:
+    print(f"{target_product} not found in the list.")
